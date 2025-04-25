@@ -20,11 +20,11 @@ def mettre_a_jour_table():
     colonnes = [col[1] for col in c.fetchall()]
     if not colonnes:
         c.execute('''CREATE TABLE idees 
-                     (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                      texte TEXT NOT NULL, 
-                      description TEXT, 
-                      tags TEXT, 
-                      date TEXT)''')
+                (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                texte TEXT NOT NULL, 
+                description TEXT, 
+                tags TEXT, 
+                date TEXT)''')
     elif "description" not in colonnes:
         c.execute("ALTER TABLE idees ADD COLUMN description TEXT")
     conn.commit()
@@ -34,13 +34,13 @@ mettre_a_jour_table()
 def ajouter_idee(texte, description, tags=""):
     date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     c.execute("INSERT INTO idees (texte, description, tags, date) VALUES (?, ?, ?, ?)", 
-              (texte, description, tags, date))
+        (texte, description, tags, date))
     conn.commit()
     return True
 
 def rechercher_idee(mot_cle):
     c.execute("SELECT * FROM idees WHERE texte LIKE ? OR tags LIKE ? OR description LIKE ?", 
-              (f"%{mot_cle}%", f"%{mot_cle}%", f"%{mot_cle}%"))
+        (f"%{mot_cle}%", f"%{mot_cle}%", f"%{mot_cle}%"))
     return c.fetchall()
 
 def afficher_toutes_idees():
@@ -125,8 +125,8 @@ class MoteurIdeesApp:
             if resultats:
                 for idee in resultats:
                     self.resultats_text.insert(tk.END, f"ID: {idee[0]} | Texte: {idee[1]} | "
-                                                      f"Description: {idee[2]} | Tags: {idee[3]} | "
-                                                      f"Date: {idee[4]}\n")
+                        f"Description: {idee[2]} | Tags: {idee[3]} | "
+                        f"Date: {idee[4]}\n")
             else:
                 self.resultats_text.insert(tk.END, "Aucune idée trouvée.\n")
         else:
@@ -138,8 +138,8 @@ class MoteurIdeesApp:
         if resultats:
             for idee in resultats:
                 self.resultats_text.insert(tk.END, f"ID: {idee[0]} | Texte: {idee[1]} | "
-                                                  f"Description: {idee[2]} | Tags: {idee[3]} | "
-                                                  f"Date: {idee[4]}\n")
+                    f"Description: {idee[2]} | Tags: {idee[3]} | "
+                    f"Date: {idee[4]}\n")
         else:
             self.resultats_text.insert(tk.END, "Aucune idée enregistrée.\n")
 
