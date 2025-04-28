@@ -38,4 +38,38 @@ python3 data_base_manager.py
 
 Interface principale
 
-L'interface se compose de 
+L'interface se compose de:
+
+    - **Section supérieure**: Formulaire pour ajouter de nouvelles idées et contrôles de recherche
+    - **Section inférieuré**: Zone d'affichage des résultats
+
+Ajouter une idée
+
+    1. Remplissez le champ "idée" (obligatoire)
+    2. Ajoutez une description détaillée (optionnel)
+    3. Spécifiez des tags pour faciliter la recherche future (optionnel)
+    4. Cliquez sur "Ajouter"
+
+Rechercher des idées
+
+    1. Entrez un mot-clé dans le champ de recherche
+    2. Cliquez sur "Rechercher"
+    3. Les résultats s'afficheront dans la zone inférieure
+
+Autres opérations
+
+    - **Tout afficher**: Affiche toutes les idées enregistrées
+    - **Supprimer**: Entrez l'ID d'une idée et cliquez sur "Supprimer"
+    - **Exporter en CSV**: Crée un fichier CSV avec toutes vos idées
+
+### Structure technique
+
+    - Base de données SQLite (mes_idees.db) pour le stockage persistant
+    - Interface graphique avec Tkinter
+    - Gestion des erreurs et validation des entrées utilisateur
+
+### Licence
+© Etienne POUILLE 2025
+
+Tous droits réservés. POur toute demande d'utilisation, veuillez contacter:
+etienne.pouille@epitech.eu
